@@ -1,26 +1,27 @@
 const express = require('express');
+const pointApi = require('./point');
+const parcoursApi = require('./parcours');
 const router = express.Router();
-
-// declare axios for making http requests
-const axios = require('axios');
-const API = 'https://jsonplaceholder.typicode.com';
 
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('api works');
 });
 
-// Get all posts
-router.get('/posts', (req, res) => {
-  // Get posts from the mock api
-  // This should ideally be replaced with a service that connects to MongoDB
-  axios.get(`${API}/posts`)
-    .then(posts => {
-      res.status(200).json(posts.data);
-    })
-    .catch(error => {
-      res.status(500).send(error)
-    });
-});
+/* API Point */
+const pointUrl = '/point';
+router.get(pointUrl, pointApi.findAll);
+router.get(pointUrl+'/:id', pointApi.findById);
+router.post(pointUrl, pointApi.add);
+router.put(pointUrl+'/:id', pointApi.update);
+router.delete(pointUrl+'/:id', pointApi.delete);
+
+/* API Parcours */
+const parcoursUrl = '/parcours';
+router.get(parcoursUrl, parcoursApi.findAll);
+router.get(parcoursUrl+'/:id', parcoursApi.findById);
+router.post(parcoursUrl, parcoursApi.add);
+router.put(parcoursUrl+'/:id', parcoursApi.update);
+router.delete(parcoursUrl+'/:id', parcoursApi.delete);
 
 module.exports = router;

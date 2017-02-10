@@ -1,0 +1,18 @@
+.margin10{
+	margin:5px;
+}
+.margin-top5{
+	margin-top:5px;
+}
+
+.list-group{
+	padding-left: 0;
+    margin-bottom: 5px;
+}
+
+.scrollable-y{
+	overflow-y:scroll;
+	position:fixed;
+	bottom:0px;
+	top:50px;
+}

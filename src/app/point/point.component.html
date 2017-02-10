@@ -1,0 +1,12 @@
+<div class="list-group scrollable-y margin-top5 width30" >
+	<div  *ngFor="let point of points" (click)="onSelect(point)">
+		<a class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between" >
+				<h5 class="mb-1"> {{ point.nom }} </h5>
+				<small>{{point.date}}</small>
+			</div>
+			<p class="mb-1">{{point.description || ""}}</p>
+			<small>{{point.dateMaj | date: 'dd/MM/yyyy'}} à {{point.elevation}}m par <a href="#" >user</a> </small>
+		</a>
+	</div>
+</div>

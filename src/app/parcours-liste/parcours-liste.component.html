@@ -1,0 +1,12 @@
+<div class="list-group scrollable-y margin-top5 width30" > 
+	<div  *ngFor="let parcours of parcoursList" (click)="onSelect(parcours)">
+		<a class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="d-flex w-100 justify-content-between" >
+				<h5 class="mb-1">{{parcours.nom}}</h5>
+				<small>{{parcours.date}}</small>
+			</div>
+			<p class="mb-1">{{parcours.description }}</p>
+			<small>{{parcours.dateMaj | date: 'dd/MM/yyyy'}} par <a href="#" >user</a> </small>
+		</a>
+	</div>
+</div>

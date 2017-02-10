@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+.on-map {
+    position: absolute;
+    z-index: 1000;
+}
+
+.map-button {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+}
+
+.leaflet-clickable {
+  cursor: crosshair !important;
+}
+
+.leaflet-container {
+  cursor: help !important;
+}
+
+body{
+	padding-top: 50px;
+}
+
+.width100{
+	width:100%;
+}
+
+.width30{
+	width:30%;
+}
+
+
+.width70{
+	width:70%;
+}
+
+.scrollable-y{
+	overflow-y:scroll;
+	position:fixed;
+	bottom:0px;
+	top:50px;
+}
