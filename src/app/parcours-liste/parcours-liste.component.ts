@@ -24,7 +24,8 @@ export class ParcoursListeComponent implements OnInit {
   }
 
   onSelect(parcours){
-	this.mapService.addPoints(parcours.points);
+	//this.mapService.addPoints(parcours.points);
+	this.mapService.addPolylines(parcours.points);
 	//this.router.navigate(['/parcours-detail/', parcours._id]);
   }
 }

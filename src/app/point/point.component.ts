@@ -24,7 +24,8 @@ export class PointComponent implements OnInit {
 
   onSelect(point){
 	console.log(point);
-	this.mapService.addPoint(point);
+	this.mapService.addPoint(point,'bleue');
 	//this.router.navigate(['/point-detail/', point._id]);
   }
+  
 }

@@ -14,6 +14,8 @@ export class MapService {
     public baseMaps: any;
     private vtLayer: any;
     http: Http;
+	latlngs: any = [[52.6, -1.1], [52.605, -1.1], [52.606, -1.105], [52.697, -1.109]];
+	private optionSegment : any = {color: 'green'};
 	  
 	constructor(http: Http) {
         this.http = http;
@@ -48,28 +50,65 @@ export class MapService {
             });
     }
 	
-	addPoint(point){
-		console.log('addPoint');
+	/** Creation d'une icone pour marker **/
+	createIcon(couleur){
+		let iconUrl = '';
+		if(couleur === 'red'){
+			iconUrl = "assets/marker-icon-red-p.png";
+		}
+		else if (couleur === 'bleue'){
+			iconUrl = "assets/marker-icon.png";
+		}
+		let icon = L.icon({
+				iconUrl: iconUrl,
+				iconSize: [25, 41], // size of the icon
+				iconAnchor: [12.5, 40] // point of the icon which will correspond to marker's location
+			})
+		return icon;
+	}
+	
+	/** Ajouter un point **/
+	addPoint(point,couleur){
 		this.map.setView(L.latLng(point.lat, point.lon),10);
 		let marker = L.marker( L.latLng(point.lat, point.lon), {
-			icon: L.icon({
-				iconUrl: "assets/marker-icon.png",
-				shadowUrl: "assets/marker-shadow.png"
-			}),
+			icon: this.createIcon(couleur),
 			draggable: true
 		})
 		.bindPopup("Marker #" + (this.markerCount++).toString(), {
 			offset: L.point(12, 6)
 		})
-		.addTo(this.map)
-		.openPopup();
+		.addTo(this.map);
+		//.openPopup();
 	}
 	
+	/** Ajouter une liste de points **/
 	addPoints(points){
 		for (let point of points) {
 			if(point.lat !== undefined && point.lon !== undefined){
-				this.addPoint(point);
+				this.addPoint(point,'bleue');
 			}
 		}
+	}
+
+	/** Ajouter un parcours **/
+	addPolylines(points){
+		this.latlngs = [];
+		for(let point of points){
+			let latlng = [point.lat, point.lon];
+			this.latlngs.push(latlng);
+		}
+		var trajet = L.polyline(this.latlngs,{color: 'green'}).addTo(this.map);
+		trajet.on('mouseover', function($event) {
+			console.log($event);
+		});
+		this.addPoint(points[points.length-1],'red');
+		this.addPoint(points[0],'bleue');
+		this.fitBound(points[0],points[points.length-1]);
+	}
+	
+	/** fit bounds **/
+	fitBound(pointEst,pointOuest){
+		var bounds = L.bounds(pointOuest, pointEst);
+		this.map.fitBounds(bounds);
 	}
 }

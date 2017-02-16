@@ -11,23 +11,21 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 export class MapComponent implements OnInit {
 	
 	@ViewChild(ToolbarComponent) toolbarComponent: ToolbarComponent;
-	
-	markerCount : number = 0;
-	
+	private markerCount : number = 0;
+	private optionMap : any = {
+		zoomControl: false,
+		center: L.latLng(40.731253, -73.996139),
+		zoom: 12,
+		minZoom: 4,
+		maxZoom: 19,
+		layers: [this.mapService.baseMaps.OpenStreetMap]
+	}
 	constructor(private mapService: MapService) { } 
   
 	ngOnInit() {
-	   let map = L.map("map", {
-            zoomControl: false,
-            center: L.latLng(40.731253, -73.996139),
-            zoom: 12,
-            minZoom: 4,
-            maxZoom: 19,
-            layers: [this.mapService.baseMaps.OpenStreetMap]
-        });
-
+	   let map = L.map("map", this.optionMap);
         L.control.zoom({ position: "topright" }).addTo(map);
-        //L.control.layers(this.mapService.baseMaps).addTo(map);
+        L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
 
         this.mapService.map = map;
@@ -42,5 +40,4 @@ export class MapComponent implements OnInit {
        // this.toolbarComponent.Initialize();
     }
 	
-
 }
