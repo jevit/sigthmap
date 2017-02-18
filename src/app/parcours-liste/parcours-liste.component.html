@@ -1,4 +1,4 @@
-<div class="list-group scrollable-y margin-top5 width30" > 
+<!-- <div class="list-group scrollable-y margin-top5 width30" > 
 	<div  *ngFor="let parcours of parcoursList" (click)="onSelect(parcours)">
 		<a class="list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between" >
@@ -8,5 +8,63 @@
 			<p class="mb-1">{{parcours.description }}</p>
 			<small>{{parcours.dateMaj | date: 'dd/MM/yyyy'}} par <a href="#" >user</a> </small>
 		</a>
+	</div>
+</div> -->
+<!-- Recherche -->
+<div class="rech-liste width30" >
+	<!-- <div class="recherche"> 
+		<div class="row ">
+		  <div class="col-lg-6 width100">
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Rechercher...">
+			  <span class="input-group-btn">
+				<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+			  </span>
+			</div>
+		  </div>
+		</div>
+	 </div -->
+	<!-- Liste de parcours -->
+	<div class="parcours-liste">
+		<div *ngFor="let parcours of parcoursList; let i = index;" (click)="onSelect(parcours)">
+			<div class="row row-eq-height">
+				<div class="panel-body panel panel-default parcours">
+					<!-- Image -->
+					<div class=" col-sm-4 thumbnail">
+						<img src="/assets/carte-ign-buhl.jpg" alt="..." style="width:110px; height:110px;" >
+					</div>
+					<!-- Description -->
+					<div class=" col-sm-8 ">
+						<div class="d-flex w-100 justify-content-between" >
+							<div class="mb-1 parcours-title">{{parcours.nom}}</div>
+							<small>{{parcours.date}}</small>
+						</div>
+						<div class="mb-1 parcours-description">{{parcours.description }}</div>
+						<div class="row margin5 no-marg-pad-left">
+							<div class=" col-sm-4 ">
+								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-menu-up"> {{parcours.denivelePos | number : '1.2-2' }}</span></div>
+								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-menu-down"> {{parcours.deniveleNeg | number : '1.2-2' }}</span></div>
+							</div>
+							<div class=" col-sm-4 ">
+								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-export"> {{parcours.elevationMax | number : '1.2-2' }}</span></div>
+								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-import"> {{parcours.elevationMin | number : '1.2-2' }}</span></div>
+							</div>
+							<div class=" col-sm-4 ">
+								<div class="glyphicon glyphicon-time"> difficulté</div>
+								<div class="glyphicon glyphicon-road"> {{parcours.km | number : '1.2-2' }}Km</div>
+							</div>
+						</div>
+						<div class="mb-1 ">
+							<div class=" col-sm-4 ">
+								<span class="label label-success">Trail</span>
+							</div>
+							<div class=" col-sm-8 parcours-dateuser">
+								<small>{{parcours.dateMaj | date: 'dd/MM/yyyy'}} par <a href="#" >user </a> </small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -1,0 +1,80 @@
+.row{
+	padding-right: 5px !important;
+    padding-left: 5px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.thumbnail  {
+    display: block;
+    padding: 4px;
+    margin-bottom: 0px  !important; 
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 0px solid #ddd !important;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+.panel-body {
+    padding: 0px !important;
+}
+
+.no-marg-pad-left{
+	padding-left: 0px !important;
+    margin-left: 0px !important;
+}
+
+.panel{
+	margin-bottom: 2px !important; 
+	margin-top: 4px !important;
+	padding-top:3px !important;
+	padding-bottom:3px !important;
+}
+
+.parcours-title{
+    font-size: 15px;
+    color: #54677d;
+    font-weight: bold;    
+	margin-top: 5px;
+}
+
+.parcours-description{
+	color: #9aa8b9;
+    white-space: nowrap;
+    text-overflow: initial;
+    overflow: hidden;
+    font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.parcours-dateuser{
+	text-align:right;
+}
+
+.parcours:hover{
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+     padding-right: 1px !important;
+     padding-left: 1px !important; 
+}
+
+.recherche{
+    background: #f1f2f7;
+	padding-top:5px;
+	padding-bottom:5px;
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+}
+
+.parcours-liste{
+	height: 100%;
+    overflow-y: scroll;
+}

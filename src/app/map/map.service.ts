@@ -51,31 +51,53 @@ export class MapService {
     }
 	
 	/** Creation d'une icone pour marker **/
-	createIcon(couleur){
+	createIcon(type){
 		let iconUrl = '';
-		if(couleur === 'red'){
-			iconUrl = "assets/marker-icon-red-p.png";
+		let iconSize:any = [];
+		let iconAnchor:any = []; // size of the icon
+		if(type === 'red'){
+			iconUrl = "assets/marker-icon-red-r.png";
+			//iconSize = [25, 41]; 
+			//iconAnchor = [12.5, 40];
+			iconSize = [12, 20]; // size of the icon
+			iconAnchor = [6, 10];
 		}
-		else if (couleur === 'bleue'){
-			iconUrl = "assets/marker-icon.png";
+		else if (type === 'bleue'){
+			iconUrl = "assets/marker-icon-bleue-r.png";
+			iconSize = [12, 20]; // size of the icon
+			iconAnchor = [6, 10];
+		}
+		else if (type === 'km'){
+			iconUrl = "assets/green-marker-icon-r.png";
+			iconSize = [12, 20]; // size of the icon
+			iconAnchor = [6, 10];
 		}
 		let icon = L.icon({
 				iconUrl: iconUrl,
-				iconSize: [25, 41], // size of the icon
-				iconAnchor: [12.5, 40] // point of the icon which will correspond to marker's location
+				iconSize: iconSize, // size of the icon
+				iconAnchor: iconAnchor // point of the icon which will correspond to marker's location
 			})
 		return icon;
 	}
 	
 	/** Ajouter un point **/
-	addPoint(point,couleur){
+	addPoint(point,type){
+		let offset:any = [];
+		if(type === 'red'){
+			//offset = L.point(12, 6);
+			offset = L.point(6, 6);
+		}
+		else if (type === 'km'){
+			offset = L.point(6, 6);
+		}
+		offset = L.point(12, 6);
 		this.map.setView(L.latLng(point.lat, point.lon),10);
 		let marker = L.marker( L.latLng(point.lat, point.lon), {
-			icon: this.createIcon(couleur),
+			icon: this.createIcon(type),
 			draggable: true
 		})
-		.bindPopup("Marker #" + (this.markerCount++).toString(), {
-			offset: L.point(12, 6)
+		.bindPopup(point.nom, {
+			offset: offset
 		})
 		.addTo(this.map);
 		//.openPopup();
@@ -104,11 +126,17 @@ export class MapService {
 		this.addPoint(points[points.length-1],'red');
 		this.addPoint(points[0],'bleue');
 		this.fitBound(points[0],points[points.length-1]);
+		
+		for(let point of points){
+			if(Number(point.nom)){
+				this.addPoint(point,'km');
+			}
+		}
 	}
 	
 	/** fit bounds **/
 	fitBound(pointEst,pointOuest){
-		var bounds = L.bounds(pointOuest, pointEst);
-		this.map.fitBounds(bounds);
+	//	var bounds = L.bounds(pointOuest, pointEst);
+	//	this.map.fitBounds(bounds);
 	}
 }

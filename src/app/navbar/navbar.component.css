@@ -1,0 +1,13 @@
+.navbar-brand>span {
+    color: #3a9853;
+}
+
+a {
+    color: rgb(87, 105, 85) !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3a9853 !important;
+    text-decoration: none;
+}
