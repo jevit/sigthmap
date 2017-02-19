@@ -20,10 +20,11 @@ export class MapComponent implements OnInit {
 		maxZoom: 19,
 		layers: [this.mapService.baseMaps.OpenStreetMap]
 	}
+	
 	constructor(private mapService: MapService) { } 
   
 	ngOnInit() {
-	   let map = L.map("map", this.optionMap);
+	    let map = L.map("map", this.optionMap);
         L.control.zoom({ position: "topright" }).addTo(map);
         L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
@@ -38,6 +39,7 @@ export class MapComponent implements OnInit {
 
     ngAfterViewInit() {
        // this.toolbarComponent.Initialize();
+		this.toolbarComponent.call(this.mapService.map);
     }
 	
 }

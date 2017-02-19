@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app/app.component';
 import { PointComponent } from './point/point.component';
@@ -21,6 +22,8 @@ import { ParcoursListeComponent } from './parcours-liste/parcours-liste.componen
 import { ParcoursListeService } from './parcours-liste/parcours-liste.service';
 import { ParcoursDetailComponent } from './parcours-detail/parcours-detail.component';
 import { ParcoursDetailService } from './parcours-detail/parcours-detail.service';
+import { ElevationComponent } from './elevation/elevation.component';
+import { ElevationService } from './elevation/elevation.service';
 
 // Define the routes
 const ROUTES = [
@@ -48,6 +51,10 @@ const ROUTES = [
   {
     path: 'map',
     component: MapComponent
+  },
+  {
+    path: 'elevation',
+    component: ElevationComponent
   }
 ];
 
@@ -61,18 +68,21 @@ const ROUTES = [
     NavbarComponent,
     PointDetailComponent,
     ParcoursListeComponent,
-    ParcoursDetailComponent
+    ParcoursDetailComponent,
+    ElevationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+	ChartsModule,
 	RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
   providers: [PointService,MapService,
 				ToolbarService,SidebarService,
 				NavbarService,PointDetailService,
-				ParcoursDetailService,ParcoursListeService],
+				ParcoursDetailService,ParcoursListeService,
+				ElevationService],
   bootstrap: [AppComponent]
 })
 

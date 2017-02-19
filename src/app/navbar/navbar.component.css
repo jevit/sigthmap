@@ -11,3 +11,20 @@ a:hover {
     color: #3a9853 !important;
     text-decoration: none;
 }
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #000000;
+  border-radius: 1px;
+}
+
+
+.collapse[aria-expanded="true"]{
+  background-color: #ffffff;
+}
+
+.collapse.in {
+    background-color: #ffffff !important;
+}

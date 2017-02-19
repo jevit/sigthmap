@@ -10,6 +10,7 @@ import "rxjs/add/operator/mergeMap";
 @Injectable()
 export class MapService {
 	public map:any;
+	public trajet:any;
 	public markerCount:number=0;
     public baseMaps: any;
     private vtLayer: any;
@@ -91,7 +92,7 @@ export class MapService {
 			offset = L.point(6, 6);
 		}
 		offset = L.point(12, 6);
-		this.map.setView(L.latLng(point.lat, point.lon),10);
+		this.map.setView(L.latLng(point.lat, point.lon),15);
 		let marker = L.marker( L.latLng(point.lat, point.lon), {
 			icon: this.createIcon(type),
 			draggable: true
@@ -120,9 +121,7 @@ export class MapService {
 			this.latlngs.push(latlng);
 		}
 		var trajet = L.polyline(this.latlngs,{color: 'green'}).addTo(this.map);
-		trajet.on('mouseover', function($event) {
-			console.log($event);
-		});
+		this.trajet = trajet;
 		this.addPoint(points[points.length-1],'red');
 		this.addPoint(points[0],'bleue');
 		this.fitBound(points[0],points[points.length-1]);
@@ -132,6 +131,7 @@ export class MapService {
 				this.addPoint(point,'km');
 			}
 		}
+		return this.trajet;
 	}
 	
 	/** fit bounds **/

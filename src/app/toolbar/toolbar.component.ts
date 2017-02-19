@@ -33,8 +33,7 @@ editing: boolean;
             if (this.editing) {
                 let marker = L.marker(e.latlng, {
                     icon: L.icon({
-                        iconUrl: "../../../node_modules/leaflet/dist/images/marker-icon.png",
-                        shadowUrl: "../../../node_modules/leaflet/dist/images/marker-shadow.png"
+                        iconUrl: "assets/green-marker-icon-r.png"
                     }),
                     draggable: true
                 })
@@ -55,7 +54,11 @@ editing: boolean;
             }
         });
     }
-
+	
+	call(points){
+		console.log('tes')
+	}
+	
     toggleEditing() {
         this.editing = !this.editing;
 

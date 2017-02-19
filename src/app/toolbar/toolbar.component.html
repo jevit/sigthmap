@@ -3,27 +3,23 @@
     <i class="fa fa-map-marker"></i>
 </button>
 
+<!-- Supprimer un point  -->
 <button id="remove-marker" class="btn btn-default on-map" [class.btn-primary]="removing"
         title="Remove markers by clicking on them" (click)="toggleRemoving()" btnCheckbox>
     <i class="fa fa-trash"></i>
 </button>
 
-<button id="toggle-layer" class="btn btn-default on-map" [class.btn-primary]="airportLayerAdded"
-        title="Toggle the airport layer" (click)="toggleAirPortLayer()" btnCheckbox>
-    <i class="fa fa-plane"></i>
-</button>
+<!-- <button id="toggle-layer" class="btn btn-default on-map" [class.btn-primary]="airportLayerAdded" -->
+        <!-- title="Toggle the airport layer" (click)="toggleAirPortLayer()" btnCheckbox> -->
+    <!-- <i class="fa fa-plane"></i> -->
+<!-- </button> -->
 
-
-<div id="panel-toolbar" class="panel panel-default on-map ">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
+<!-- Elevation -->
+<div id="panel-toolbar" class="panel panel-default on-map elevation-profile">
+  <!-- <div class="panel-heading"> -->
+    <!-- <h3 class="panel-title">Panel title</h3> -->
+  <!-- </div> -->
   <div class="panel-body">
-	  <div class="row" *ngFor="let point of points">
-		<div class="card card-block">
-		  <h4 class="card-title">{{ point.name || point.nom }}</h4>
-		  <p class="card-text">{{point.x}} {{point.y}}</p>
-		</div>
-	  </div>
+  {{points.point}}
   </div>
 </div>

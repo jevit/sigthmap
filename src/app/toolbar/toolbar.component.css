@@ -1,17 +1,24 @@
 
 #add-marker {
-    margin: 20px 0 0 370px;
+    margin: 20px 0 0 20px;
 }
 
 #remove-marker {
-    margin: 20px 0 0 410px;
+    margin:20px 0 0 60px;
 }
 
 #toggle-layer {
-    margin: 20px 0 0 450px;
+    margin: 5px 0 0 450px;
 }
 
 #panel-toolbar {
-    margin: 20px 0 0 45px;
-	width:200px;
+    width: 500px;
+    bottom: 15px;
+	right:20px;
+    margin: 5px;
+    height: 200px;
+}
+
+.elevation-profile {
+  background-color: rgba(0, 0, 0, 0.85);
 }
