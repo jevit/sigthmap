@@ -26,10 +26,13 @@ export class ParcoursListeComponent implements OnInit {
   onSelect(parcours){
 	//this.mapService.addPoints(parcours.points);
 	this.mapService.addPolylines(parcours.points);
+	// MouseOver parcours
 	this.mapService.trajet.on('mouseover', function($event) {
 			console.log($event);
-			console.log(parcours.points);
-		});
+	});
+	// Update Chart
+	// TODO
+	
 	//this.router.navigate(['/parcours-detail/', parcours._id]);
   }
 }

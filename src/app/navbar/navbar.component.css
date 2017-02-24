@@ -1,14 +1,19 @@
-.navbar-brand>span {
-    color: #3a9853;
+.titre-grand { 
+	color: black ;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;   
+	letter-spacing:2px;
+}
+
+.navbar-brand>span { 
 }
 
 a {
-    color: rgb(87, 105, 85) !important;
+    color: black !important;
     text-decoration: none;
 }
 
 a:hover {
-    color: #3a9853 !important;
+    color: black !important;
     text-decoration: none;
 }
 
@@ -28,3 +33,22 @@ a:hover {
 .collapse.in {
     background-color: #ffffff !important;
 }
+
+li:hover {
+    color: #d78a2e !important;
+	background:white;
+}
+.navbar-inverse {
+    background-color: #f6f6f6;
+    border-color: white; 
+}
+
+.titre-petit{
+	color: #f09c00;
+    font-size: 13px;
+    letter-spacing: 0px;
+    text-shadow: 0px 0 #f09c00, 0 0px #f09c00, 0px 0 #f09c00, 0 0px #f09c00;
+}
+-- gris foncé background-color: rgb(117, 133, 128);
+-- navbar bleue   background-color: rgb(98, 211, 255);
+-- navbar vert foncé : rgb(89, 166, 141);

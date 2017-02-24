@@ -1,6 +1,6 @@
 
 <!-- Recherche -->
-<div class="rech-liste width30" >
+<div class="rech-liste width25" >
 	<!-- <div class="recherche"> 
 		<div class="row ">
 		  <div class="col-lg-6 width100">
@@ -16,43 +16,66 @@
 	<!-- Liste de parcours -->
 	<div class="parcours-liste">
 		<div *ngFor="let parcours of parcoursList; let i = index;" (click)="onSelect(parcours)">
-			<div class="row row-eq-height">
-				<div class="panel-body panel panel-default parcours">
-					<!-- Image -->
-					<div class=" col-sm-4 thumbnail">
-						<img src="/assets/carte-ign-buhl.jpg" alt="..." style="width:110px; height:110px;" >
+			<!-- <div class="row row-eq-height"> -->
+			<div class="panel">
+				<div class="row parcours">
+					<!-- Image --> 
+					<div class="col-md-3">
+						<img src="/assets/28072804076_cede5f18a5_b.jpg" alt="..." style="width:80px; height:80px;" >
 					</div>
-					<!-- Description -->
-					<div class=" col-sm-8 ">
-						<div class="d-flex w-100 justify-content-between" >
-							<div class="mb-1 parcours-title">{{parcours.nom}}</div>
-							<small>{{parcours.date}}</small>
+					
+					<!-- Information -->
+					<div class="col-md-8">
+						  <!-- Titre -->
+						  <div class="row parcours-title">
+							<div class="col-xs-12 col-md-12">{{parcours.nom}}</div>
+						  </div>
+
+						  <!-- Description 
+						  <div class="row parcours-description">
+							<div class="col-xs-12 col-md-12">{{parcours.description }}</div>
+						  </div> -->
+						  
+						  <!-- Detail 1 -->
+						  <div class="row parcours-detail item1">
+							<div class="col-xs-6 col-md-6"><span class="glyphicon glyphicon-time"> Facile</span></div>
+							<div class="col-xs-6 col-md-6"><span class="glyphicon glyphicon-road"> {{parcours.km | number : '1.2-2' }}km</span></div>
 						</div>
-						<div class="mb-1 parcours-description">{{parcours.description }}</div>
-						<div class="row margin5 no-marg-pad-left">
-							<div class=" col-sm-4 ">
-								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-menu-up"> {{parcours.denivelePos | number : '1.2-2' }}</span></div>
-								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-menu-down"> {{parcours.deniveleNeg | number : '1.2-2' }}</span></div>
-							</div>
-							<div class=" col-sm-4 ">
-								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-export"> {{parcours.elevationMax | number : '1.2-2' }}</span></div>
-								<div class="mb-1 no-marg-pad-left"><span class="glyphicon glyphicon-import"> {{parcours.elevationMin | number : '1.2-2' }}</span></div>
-							</div>
-							<div class=" col-sm-4 ">
-								<div class="glyphicon glyphicon-time"> difficulté</div>
-								<div class="glyphicon glyphicon-road"> {{parcours.km | number : '1.2-2' }}Km</div>
-							</div>
+						  
+						  <!-- Detail 2 -->
+						  <div class="row parcours-detail ">
+							<div class="col-xs-4 col-md-6"><span class="glyphicon glyphicon-menu-up"><span class="grey"> {{parcours.denivelePos | number : '1.2-2' }}</span></span></div>
+							<div class="col-xs-4 col-md-6"><span class="glyphicon glyphicon-export"><span class="grey"> {{parcours.elevationMax | number : '1.2-2' }}</span></span></div>
+						 </div>
+
+						  <!-- Detail 3 -->
+						  <div class="row parcours-detail ">
+							<div class="col-xs-4 col-md-6"><span class="glyphicon glyphicon-menu-down"><span class="grey"> {{parcours.deniveleNeg | number : '1.2-2' }}</span></span></div>
+							<div class="col-xs-4 col-md-6"><span class="glyphicon glyphicon-import"><span class="grey"> {{parcours.elevationMin | number : '1.2-2' }}</span></span></div>
+						  </div>
+					</div>
+					
+					
+					<!-- Social -->
+					<div class="col-md-1">
+						<div class="row "><span  style="font-size:20px;" class="glyphicon"> </span></div>
+						<div class="row ">
+							<div class="col-xs-1 col-md-1"><span class="glyphicon glyphicon-share"> </span></div>   
 						</div>
-						<div class="mb-1 ">
-							<div class=" col-sm-4 ">
-								<span class="label label-success">Trail</span>
-							</div>
-							<div class=" col-sm-8 parcours-dateuser">
-								<small>{{parcours.dateMaj | date: 'dd/MM/yyyy'}} par <a href="#" >user </a> </small>
-							</div>
+						<div class="row ">
+							<div class="col-xs-1 col-md-1"><span class="glyphicon glyphicon-comment"> </span></div>
+						</div>
+						<div class="row ">
+							<div class="col-xs-1 col-md-1"><span class="glyphicon glyphicon-star"> </span></div>
 						</div>
 					</div>
 				</div>
+				
+				<!-- detail 4 
+				<div class="row parcours-detail">
+					<div class="col-xs-6 col-md-6"><span class="label label-success">Trail</span></div>
+					<div class="col-xs-6 col-md-6 petit"><small>{{parcours.dateMaj | date: 'dd/MM/yyyy'}}  par <a href="#">user </a> </small></div>
+				</div>-->
 			</div>
 		</div>
 	</div>

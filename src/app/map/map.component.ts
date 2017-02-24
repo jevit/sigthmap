@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
 		maxZoom: 19,
 		layers: [this.mapService.baseMaps.OpenStreetMap]
 	}
-	
+	points:any=[1,1];
 	constructor(private mapService: MapService) { } 
   
 	ngOnInit() {
@@ -41,5 +41,6 @@ export class MapComponent implements OnInit {
        // this.toolbarComponent.Initialize();
 		this.toolbarComponent.call(this.mapService.map);
     }
+	
 	
 }

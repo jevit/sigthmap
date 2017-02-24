@@ -60,13 +60,13 @@ export class MapService {
 			iconUrl = "assets/marker-icon-red-r.png";
 			//iconSize = [25, 41]; 
 			//iconAnchor = [12.5, 40];
-			iconSize = [12, 20]; // size of the icon
-			iconAnchor = [6, 10];
+			iconSize = [16, 27]; 
+			iconAnchor = [8, 13];
 		}
 		else if (type === 'bleue'){
 			iconUrl = "assets/marker-icon-bleue-r.png";
-			iconSize = [12, 20]; // size of the icon
-			iconAnchor = [6, 10];
+			iconSize = [16, 27]; 
+			iconAnchor = [8, 13];
 		}
 		else if (type === 'km'){
 			iconUrl = "assets/green-marker-icon-r.png";
@@ -92,7 +92,7 @@ export class MapService {
 			offset = L.point(6, 6);
 		}
 		offset = L.point(12, 6);
-		this.map.setView(L.latLng(point.lat, point.lon),15);
+		this.map.setView(L.latLng(point.lat, point.lon),12);
 		let marker = L.marker( L.latLng(point.lat, point.lon), {
 			icon: this.createIcon(type),
 			draggable: true
