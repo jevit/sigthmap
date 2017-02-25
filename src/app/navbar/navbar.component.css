@@ -5,15 +5,16 @@
 }
 
 .navbar-brand>span { 
+
 }
 
-a {
+a{
     color: black !important;
     text-decoration: none;
 }
 
 a:hover {
-    color: black !important;
+	color: black ;
     text-decoration: none;
 }
 
@@ -34,13 +35,14 @@ a:hover {
     background-color: #ffffff !important;
 }
 
-li:hover {
+li>a:hover {
     color: #d78a2e !important;
 	background:white;
 }
+
 .navbar-inverse {
-    background-color: #f6f6f6;
-    border-color: white; 
+    background-color: #ffffff;
+    border-color: black; 
 }
 
 .titre-petit{
@@ -49,6 +51,3 @@ li:hover {
     letter-spacing: 0px;
     text-shadow: 0px 0 #f09c00, 0 0px #f09c00, 0px 0 #f09c00, 0 0px #f09c00;
 }
--- gris foncé background-color: rgb(117, 133, 128);
--- navbar bleue   background-color: rgb(98, 211, 255);
--- navbar vert foncé : rgb(89, 166, 141);

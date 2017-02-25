@@ -14,6 +14,16 @@ export class ParcoursListeComponent implements OnInit {
 
   parcoursList: any = [];
   
+  /* Change le style du detail du parcours */
+  setStyleParcours(i) {
+	if(i%2==0){
+		return 'panel-grey';
+	}
+	else{
+		return 'panel';
+	}
+  }
+  
   constructor(private router: Router,private parcoursService: ParcoursListeService,private mapService: MapService) { }
 
   ngOnInit() {
