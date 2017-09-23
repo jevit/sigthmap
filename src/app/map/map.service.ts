@@ -3,6 +3,7 @@ import {Http, Headers, Response } from "@angular/http";
 import {Point} from "./point";
 import {Parcours} from "./parcours";
 import {Map} from 'leaflet';
+import * as L from 'leaflet';
 
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/mergeMap";

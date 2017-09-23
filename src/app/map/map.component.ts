@@ -5,6 +5,7 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { ElevationComponent } from '../elevation/elevation.component';
 import {Point} from "./point";
 import {Parcours} from "./parcours";
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-map',

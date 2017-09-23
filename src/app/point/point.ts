@@ -1,7 +1,7 @@
 export class Point {
   _id: number;
   nom: string;
-  dateMaj: date;
+  dateMaj: Date;
   description: string;
   lat: number;
   lon: number;

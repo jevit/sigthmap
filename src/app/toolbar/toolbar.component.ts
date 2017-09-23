@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from "../map/map.service";
-import {Map, MouseEvent, Marker} from "leaflet";
+import {Map, Marker} from "leaflet";
 import { PointService } from '../point/point.service';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-toolbar',
@@ -33,26 +34,27 @@ editing: boolean;
     Initialize() {
         this.mapService.map.on("click", (e: MouseEvent) => {
             if (this.editing) {
-                let marker = L.marker(e.latlng, {
-                    icon: L.icon({
-                        iconUrl: "assets/green-marker-icon-r.png"
-                    }),
-                    draggable: true
-                })
-                .bindPopup("Marker #" + (this.markerCount + 1).toString(), {
-                    offset: L.point(12, 6)
-                })
-                .addTo(this.mapService.map)
-                .openPopup();
+				// TODO : Property 'latlng' does not exist on type 'MouseEvent'.
+                // let marker = L.marker(e.latlng, {
+                    // icon: L.icon({
+                        // iconUrl: "assets/green-marker-icon-r.png"
+                    // }),
+                    // draggable: true
+                // })
+                // .bindPopup("Marker #" + (this.markerCount + 1).toString(), {
+                    // offset: L.point(12, 6)
+                // })
+                // .addTo(this.mapService.map)
+                // .openPopup();
 
                 this.markerCount += 1;
 
-                marker.on("click", (event: MouseEvent) => {
-                    if (this.removing) {
-                        this.mapService.map.removeLayer(marker);
-                        this.markerCount -= 1;
-                    }
-                });
+                // marker.on("click", (event: MouseEvent) => {
+                    // if (this.removing) {
+                        // this.mapService.map.removeLayer(marker);
+                        // this.markerCount -= 1;
+                    // }
+                // });
             }
         });
     }
