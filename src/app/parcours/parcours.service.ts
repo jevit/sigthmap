@@ -3,7 +3,7 @@ import {Http, Response, Headers, RequestOptions} from "@angular/http"
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ParcoursListeService {
+export class ParcoursService {
 
   constructor(private http: Http) { }
   

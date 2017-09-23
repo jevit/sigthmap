@@ -1,6 +1,6 @@
- <div class=" on-map ">
-	<div class="elevation-profile">
-	   <canvas baseChart width="300" 
+ <div class=" on-map " id="elevation-profile">
+	<div class="elevation-profile" *ngIf="showChart === true">
+	   <canvas baseChart width="350" 
 		[datasets]="lineChartData"
 		[labels]="lineChartLabels"
 		[options]="lineChartOptions"

@@ -1,10 +1,10 @@
 export class Parcours {
   _id: number;
   nom: string;
-  dateMaj: date;
+  dateMaj: Date;
   description: string;
   lag: number;
   lon: number;
   elevation: number;
-  points: Array<Point>;
+  points: any;
 }

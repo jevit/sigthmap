@@ -22,6 +22,8 @@ editing: boolean;
     }
 
     ngOnInit() {
+        this.mapService.disableMouseEvent("add-marker");
+        this.mapService.disableMouseEvent("remove-marker");
         // Retrieve posts from the API
 		this.pointService.getAllPoint().subscribe(points => {
 		  this.points = points;

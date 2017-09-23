@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { PointDetailService } from './point-detail.service';
+import { ParcoursService } from './parcours.service';
 
-describe('PointDetailService', () => {
+describe('ParcoursService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PointDetailService]
+      providers: [ParcoursService]
     });
   });
 
-  it('should ...', inject([PointDetailService], (service: PointDetailService) => {
+  it('should ...', inject([ParcoursService], (service: ParcoursService) => {
     expect(service).toBeTruthy();
   }));
 });

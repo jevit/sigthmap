@@ -3,21 +3,31 @@ var mongo = require('mongodb');
 var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
-
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('parcours', server);
+//mongodb://<dbuser>:<dbpassword>@ds147304.mlab.com:47304/heroku_5ccg3786
+//localhost:27017
+//ds147304.mlab.com:47304
+var server = new Server('ds147304.mlab.com', 47304, {auto_reconnect: true});
+db = new Db('heroku_5ccg3786', server);
 
 /* Lancer au démarrage de l'application */
 db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'parcours' database");
-        db.collection('parcours', {strict:true}, function(err, collection) {
-            if (err) {
-                console.log("The 'parcours' collection doesn't exist. Creating it with sample data...");
-                populateDB();
-            }
-        });
-    }
+	if(!err) {
+		db.authenticate('parcours', 'admin', function(err, res) {
+			if(!err) {
+				console.log("Connected to 'parcours' database");
+				db.collection('parcours', {strict:true}, function(err, collection) {
+					if (err) {
+						console.log("The 'parcours' collection doesn't exist. Creating it with sample data...");
+						populateDB();
+					}
+				});
+			}else{
+				console.log(err);
+			}
+		});
+	}else{
+		console.log(err);
+	}
 });
 
 /* Retourne un objet */
@@ -45,11 +55,12 @@ exports.findAll = function(req, res) {
 /* Ajoute une donnée */
 exports.add = function(req, res) {
     var parcours = req.body;
+	parcours._id = new mongo.ObjectID();
     console.log('Adding parcours: ' + JSON.stringify(parcours));
     db.collection('parcours', function(err, collection) {
         collection.insert(parcours, {safe:true}, function(err, result) {
             if (err) {
-                res.send({'error':'An error has occurred'});
+                res.send({'error':'Erreur '+ err.errmsg});
             } else {
                 console.log('Success: ' + JSON.stringify(result[0]));
                 res.send(result[0]);
@@ -62,6 +73,7 @@ exports.add = function(req, res) {
 exports.update = function(req, res) {
     var id = req.params.id;
     var parcours = req.body;
+	console.log(req.body);
     console.log('Updating parcours: ' + id);
     console.log(JSON.stringify(parcours));
     db.collection('parcours', function(err, collection) {

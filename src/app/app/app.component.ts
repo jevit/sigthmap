@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works! 2';
+
+
+  pinClicked() {
+    alert('pin was clicked!');
+  }
 }

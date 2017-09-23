@@ -23,9 +23,19 @@ export class PointComponent implements OnInit {
   }
 
   onSelect(point){
-	console.log(point);
-	this.mapService.addPoint(point,'bleue');
-	//this.router.navigate(['/point-detail/', point._id]);
+    console.log(point);
+
+    // Ajouter un point
+    this.mapService.addMarker(point,'bleue');
+
+		// Event 
+		this.mapService.trajet.on('mouseover',  ($event) => this.trajetMouseOver($event));
+
+    // Changes route
+    //this.router.navigate(['/point-detail/', point._id]);
   }
-  
+
+  trajetMouseOver(event){
+      console.log(event);
+  }
 }

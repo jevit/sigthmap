@@ -1,7 +1,10 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild,Output,ElementRef,EventEmitter } from '@angular/core';
 import {Map} from 'leaflet';
 import { MapService } from './map.service';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { ElevationComponent } from '../elevation/elevation.component';
+import {Point} from "./point";
+import {Parcours} from "./parcours";
 
 @Component({
   selector: 'app-map',
@@ -11,7 +14,8 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 export class MapComponent implements OnInit {
 	
 	@ViewChild(ToolbarComponent) toolbarComponent: ToolbarComponent;
-	private markerCount : number = 0;
+	@ViewChild(ElevationComponent) elevationComponent: ElevationComponent;
+
 	private optionMap : any = {
 		zoomControl: false,
 		center: L.latLng(40.731253, -73.996139),
@@ -19,19 +23,22 @@ export class MapComponent implements OnInit {
 		minZoom: 4,
 		maxZoom: 19,
 		layers: [this.mapService.baseMaps.OpenStreetMap]
-	}
-	points:any=[1,1];
-	constructor(private mapService: MapService) { } 
+	};	
+	
+	constructor(private mapService: MapService,private elRef: ElementRef) { 	} 
   
 	ngOnInit() {
+		// Initialise la map
 	    let map = L.map("map", this.optionMap);
         L.control.zoom({ position: "topright" }).addTo(map);
         L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
 
+		// Affecte la map au service
         this.mapService.map = map;
-		this.mapService.getCurrentLocation()
-			.subscribe(
+
+		/* Obtenir la location courante */
+		this.mapService.getCurrentLocation().subscribe(
 				location => map.panTo([location.lat, location.lon]),
 				err => console.error(err)
 		);
@@ -42,5 +49,11 @@ export class MapComponent implements OnInit {
 		this.toolbarComponent.call(this.mapService.map);
     }
 	
-	
+	/** fit bounds **/
+	fitBound(pointEst,pointOuest){
+		//	var bounds = L.bounds(pointOuest, pointEst);
+		//	this.map.fitBounds(bounds);
+	}
+
+
 }
