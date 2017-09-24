@@ -77,7 +77,7 @@ exports.update = function(req, res) {
     console.log('Updating parcours: ' + id);
     console.log(JSON.stringify(parcours));
     db.collection('parcours', function(err, collection) {
-        collection.update({'_id':new mongo.ObjectID(id)}, parcours, {safe:true}, function(err, result) {
+        collection.findAndModify({'_id':id}, parcours, {safe:true}, function(err, result) {
             if (err) {
                 console.log('Error updating parcours: ' + err);
                 res.send({'error':'An error has occurred'});
