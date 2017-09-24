@@ -61,6 +61,7 @@ exports.add = function(req, res) {
         collection.insert(parcours, {safe:true}, function(err, result) {
             if (err) {
                 res.send({'error':'Erreur '+ err.errmsg});
+				console.log(parcours._id);
             } else {
                 console.log('Success: ' + JSON.stringify(result[0]));
                 res.send(result[0]);
