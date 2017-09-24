@@ -57,7 +57,7 @@ var self = module.exports = {
 	/* Ajoute une donnée */
 	add : function(req, res) {
 		var parcours = req.body;
-		if(parcours._id == "" || parcours._id == null || parcours._id == undefined){
+		if(!(parcours._id == "" || parcours._id == null || parcours._id == undefined)){
 			console.log('UPDATE '+ parcours._id );
 			self.update(req, res);
 		}
