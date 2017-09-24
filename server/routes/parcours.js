@@ -55,19 +55,26 @@ exports.findAll = function(req, res) {
 /* Ajoute une donnée */
 exports.add = function(req, res) {
     var parcours = req.body;
-	parcours._id = new mongo.ObjectID();
-    console.log('Adding parcours: ' + JSON.stringify(parcours));
-    db.collection('parcours', function(err, collection) {
-        collection.insert(parcours, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'Erreur '+ err.errmsg});
-				console.log(parcours._id);
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
-            }
-        });
-    });
+	if(parcours._id !== "" && parcours._id !== null )#{
+		console.log('Update');
+		this.update(req, res);
+	}
+	else{
+		console.log('ADD');
+		parcours._id = new mongo.ObjectID();
+		console.log('Adding parcours: ' + JSON.stringify(parcours));
+		db.collection('parcours', function(err, collection) {
+			collection.insert(parcours, {safe:true}, function(err, result) {
+				if (err) {
+					res.send({'error':'Erreur '+ err.errmsg});
+					console.log(parcours._id);
+				} else {
+					console.log('Success: ' + JSON.stringify(result[0]));
+					res.send(result[0]);
+				}
+			});
+		});
+	}
 }
 
 /* Mise à jour des données */
