@@ -43,7 +43,7 @@ var self = module.exports = {
 				res.send(item);
 			});
 		});
-	};
+	},
 
 	/* Retourne tous les objets */
 	findAll = function(req, res) {
@@ -52,7 +52,7 @@ var self = module.exports = {
 				res.send(items);
 			});
 		});
-	};
+	},
 
 	/* Ajoute une donnée */
 	add = function(req, res) {
@@ -77,7 +77,7 @@ var self = module.exports = {
 				});
 			});
 		}
-	}
+	},
 
 	/* Mise à jour des données */
 	update = function(req, res) {
@@ -98,7 +98,7 @@ var self = module.exports = {
 				}
 			});
 		});
-	}
+	},
 
 	/* Supprime une donnée */
 	delete = function(req, res) {
