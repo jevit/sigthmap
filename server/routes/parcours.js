@@ -71,7 +71,8 @@ var self = module.exports = {
 						res.send({'error':'Erreur '+ err.errmsg});
 						console.log(parcours._id);
 					} else {
-						console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
+						//console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
+						console.log('Success: ' + result.result.ops._id);
 						res.send(result[0]);
 					}
 				});
