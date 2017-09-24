@@ -72,7 +72,7 @@ var self = module.exports = {
 						console.log(parcours._id);
 					} else {
 						//console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
-						console.log('Success: ' + result.result.ops._id);
+						console.log('Success: ' + result.result);
 						res.send(result[0]);
 					}
 				});
