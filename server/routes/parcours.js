@@ -55,7 +55,7 @@ exports.findAll = function(req, res) {
 /* Ajoute une donnée */
 exports.add = function(req, res) {
     var parcours = req.body;
-	if(parcours._id !== "" && parcours._id !== null )#{
+	if(parcours._id !== "" && parcours._id !== null ){
 		console.log('Update');
 		this.update(req, res);
 	}
