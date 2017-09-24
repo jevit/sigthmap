@@ -33,7 +33,7 @@ db.open(function(err, db) {
 
 var self = module.exports = {
 	/* Retourne un objet */
-	findById = function(req, res) {
+	findById : function(req, res) {
 		var id = req.params.id;
 		console.log('Retrieving parcours: ' + id);
 		db.collection('parcours', function(err, collection) {
@@ -46,7 +46,7 @@ var self = module.exports = {
 	},
 
 	/* Retourne tous les objets */
-	findAll = function(req, res) {
+	findAll : function(req, res) {
 		db.collection('parcours', function(err, collection) {
 			collection.find().toArray(function(err, items) {
 				res.send(items);
@@ -55,7 +55,7 @@ var self = module.exports = {
 	},
 
 	/* Ajoute une donnée */
-	add = function(req, res) {
+	add : function(req, res) {
 		var parcours = req.body;
 		if(parcours._id !== "" && parcours._id !== null ){
 			console.log('UPDATE');
@@ -80,7 +80,7 @@ var self = module.exports = {
 	},
 
 	/* Mise à jour des données */
-	update = function(req, res) {
+	update : function(req, res) {
 		var id = req.params.id;
 		var parcours = req.body;
 		console.log(req.body);
@@ -101,7 +101,7 @@ var self = module.exports = {
 	},
 
 	/* Supprime une donnée */
-	delete = function(req, res) {
+	delete : function(req, res) {
 		var id = req.params.id;
 		console.log('Deleting parcours: ' + id);
 		db.collection('parcours', function(err, collection) {
