@@ -69,11 +69,9 @@ var self = module.exports = {
 				collection.insert(parcours, {safe:true}, function(err, result) {
 					if (err) {
 						res.send({'error':'Erreur '+ err.errmsg});
-						console.log(parcours._id);
 					} else {
-						//console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
-						console.log('Success: ' + JSON.stringify(result.result));
-						res.send(result[0]);
+						console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
+						res.json({message: 'Welcome to the project-name api'});//send(parcours._id)
 					}
 				});
 			});
