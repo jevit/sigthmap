@@ -71,7 +71,7 @@ var self = module.exports = {
 						res.send({'error':'Erreur '+ err.errmsg});
 					} else {
 						console.log('Success: ' + JSON.stringify(result) +' '+parcours._id);
-						res.json({message: 'Welcome to the project-name api'});//send(parcours._id)
+						res.json({id: 'parcours._id'});//send(parcours._id)
 					}
 				});
 			});
