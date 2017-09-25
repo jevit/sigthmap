@@ -29,20 +29,22 @@ export class MapComponent implements OnInit {
 	constructor(private mapService: MapService,private elRef: ElementRef) { 	} 
   
 	ngOnInit() {
-		// Initialise la map
-	    let map = L.map("map", this.optionMap);
-        L.control.zoom({ position: "topright" }).addTo(map);
-        L.control.layers(this.mapService.baseMaps).addTo(map);
-        L.control.scale().addTo(map);
+		this.interval = setInterval(() => { 
+			// Initialise la map
+			let map = L.map("map", this.optionMap);
+			L.control.zoom({ position: "topright" }).addTo(map);
+			L.control.layers(this.mapService.baseMaps).addTo(map);
+			L.control.scale().addTo(map);
 
-		// Affecte la map au service
-        this.mapService.map = map;
+			// Affecte la map au service
+			this.mapService.map = map;
 
-		/* Obtenir la location courante */
-		this.mapService.getCurrentLocation().subscribe(
-				location => map.panTo([location.lat, location.lon]),
-				err => console.error(err)
-		);
+			/* Obtenir la location courante */
+			this.mapService.getCurrentLocation().subscribe(
+					location => map.panTo([location.lat, location.lon]),
+					err => console.error(err)
+			);
+		}, 5000);
 	}
 
     ngAfterViewInit() {
