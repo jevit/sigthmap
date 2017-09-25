@@ -18,10 +18,12 @@ export class ParcoursListeComponent implements OnInit {
   constructor(private router: Router,private parcoursService: ParcoursService,private mapService: MapService,private elevationService:ElevationService) { }
 
   ngOnInit() {
-    // Retrieve posts from the API
-    this.parcoursService.getAllParcours().subscribe(parcoursList => {
-		    this.parcoursList = parcoursList;
-    });
+	this.interval = setInterval(() => { 
+		// Retrieve posts from the API
+		this.parcoursService.getAllParcours().subscribe(parcoursList => {
+				this.parcoursList = parcoursList;
+		});
+	}, 5000);
   }
 
   /**
