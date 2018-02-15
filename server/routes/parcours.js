@@ -77,16 +77,16 @@ var self = module.exports = {
 			});
 		}
 	},
-  
+
 	/* Mise à jour des données */
 	update : function(req, res) {
 		var id = req.params.id;
 		var parcours = req.body;
 		console.log(req.body);
-		console.log('Updating parcours: ' + new ObjectID(id));
+		console.log('Updating parcours: ' + new mongo.ObjectID(id));
 		console.log(JSON.stringify(parcours));
 		db.collection('parcours', function(err, collection) {
-		   collection.update({'_id':new ObjectID(id)}, {$set:parcours}, {}, function(err, result) {
+		   collection.update({'_id':new mongo.ObjectID(id)}, {$set:parcours}, {}, function(err, result) {
 		  //  collection.findAndModify({'_id':new mongo.ObjectID(id)},[],parcours,{upsert: true}, function(err, result) {
 				if (err) {
 					console.log('Error updating parcours: ' + err);
