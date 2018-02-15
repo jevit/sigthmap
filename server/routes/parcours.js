@@ -77,7 +77,7 @@ var self = module.exports = {
 			});
 		}
 	},
- 
+  
 	/* Mise à jour des données */
 	update : function(req, res) {
 		var id = req.params.id;
