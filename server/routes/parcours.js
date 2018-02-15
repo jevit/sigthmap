@@ -86,7 +86,7 @@ var self = module.exports = {
 		console.log('Updating parcours: ' + new mongo.ObjectID(id));
 		console.log(JSON.stringify(parcours));
 		db.collection('parcours', function(err, collection) {
-		   collection.update({'nom':parcours.nom}, {$set:parcours}, {}, function(err, result) {
+		   collection.update({'_id':new mongo.ObjectID(parcours._id)}, {$set:parcours}, {}, function(err, result) {
 		  //  collection.findAndModify({'_id':new mongo.ObjectID(id)},[],parcours,{upsert: true}, function(err, result) {
 				if (err) {
 					console.log('Error updating parcours: ' + err);
