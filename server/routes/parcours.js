@@ -84,6 +84,7 @@ var self = module.exports = {
 		var parcours = req.body;
 		console.log(req.body);
 		console.log('Updating parcours: ' + new mongo.ObjectID(id));
+		parcours._id = new mongo.ObjectID(id);
 		console.log(JSON.stringify(parcours));
 		db.collection('parcours', function(err, collection) {
 		   collection.update({'_id':new mongo.ObjectID(id)}, {$set:parcours}, {}, function(err, result) {
