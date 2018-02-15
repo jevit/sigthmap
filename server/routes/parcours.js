@@ -80,10 +80,10 @@ var self = module.exports = {
 
 	/* Mise à jour des données */
 	update : function(req, res) {
-		var id = req.body.id;
+		var id = req.body._id;
 		var parcours = req.body;
 		console.log(req.body);
-		console.log('req.body.id '+req.body.id);
+		console.log('req.body.id '+req.body._id);
 		console.log('Updating parcours: ' + id);
 		console.log(JSON.stringify(parcours));
 		db.collection('parcours', function(err, collection) {
