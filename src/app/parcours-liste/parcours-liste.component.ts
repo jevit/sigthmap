@@ -12,7 +12,7 @@ import { ElevationService } from '../elevation/elevation.service';
 })
 export class ParcoursListeComponent implements OnInit {
 
-
+  interval : any ;
   parcoursList: any = [];
   
   constructor(private router: Router,private parcoursService: ParcoursService,private mapService: MapService,private elevationService:ElevationService) { }

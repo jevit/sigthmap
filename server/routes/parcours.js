@@ -58,7 +58,7 @@ var self = module.exports = {
 	add : function(req, res) {
 		var parcours = req.body;
 		if(!(parcours._id == "" || parcours._id == null || parcours._id == undefined)){
-			console.log('UPDATE '+ parcours._id );
+			console.log('UPDATE '+ new mongo.ObjectID(parcours._id ));
 			self.update(req, res);
 		}
 		else{
@@ -83,10 +83,10 @@ var self = module.exports = {
 		var id = req.params.id;
 		var parcours = req.body;
 		console.log(req.body);
-		console.log('Updating parcours: ' + id);
+		console.log('Updating parcours: ' + new ObjectID(id));
 		console.log(JSON.stringify(parcours));
 		db.collection('parcours', function(err, collection) {
-		   collection.update({'_id':new mongo.ObjectID(id)}, {$set:parcours}, {}, function(err, result) {
+		   collection.update({'_id':new ObjectID(id)}, {$set:parcours}, {}, function(err, result) {
 		  //  collection.findAndModify({'_id':new mongo.ObjectID(id)},[],parcours,{upsert: true}, function(err, result) {
 				if (err) {
 					console.log('Error updating parcours: ' + err);
