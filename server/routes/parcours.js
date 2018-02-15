@@ -83,6 +83,7 @@ var self = module.exports = {
 		var id = req.body._id;
 		var parcours = req.body;
 		console.log(req.body);
+		delete parcours._id
 		console.log('req.body.id '+req.body._id);
 		console.log('Updating parcours: ' + id);
 		console.log(JSON.stringify(parcours));
